@@ -1,4 +1,5 @@
 const toggleFavorite=(id:number)=>{
+    if(typeof window!=='undefined') {
     let favorites:number[]=JSON.parse(localStorage.getItem('favorites')||'[]');
     if(favorites.includes(id)){
         favorites=favorites.filter(pokeId=>pokeId!==id);
@@ -7,6 +8,7 @@ const toggleFavorite=(id:number)=>{
         favorites.push(id);
     }
     localStorage.setItem('favorites',JSON.stringify(favorites));
+}
 }
 
 const existInFavorites=(id:number):boolean=>{
