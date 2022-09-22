@@ -16,6 +16,7 @@ const existInFavorites=(id:number):boolean=>{
 }
 
 const pokemons=():number[]=>{
+    if(typeof window==='undefined') return [];
     return JSON.parse(localStorage.getItem('favorites')||'[]')
 }
 export default{
